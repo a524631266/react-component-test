@@ -1,7 +1,10 @@
 import React,{Component} from 'react';
-import ReactZtree from 'ztree-for-react';
-import $ from 'jquery';
-
+// import jQuery from 'jquery';
+// // import 'ztree'
+// import ReactZtree from 'ztree-for-react';
+import ZtreeReact from "./Ztree-react";
+import 'ztree/css/zTreeStyle/zTreeStyle.css'
+// import 'ztree/css/awesomeStyle/awesomeStyle.less'
 const nodes= [
     {
         name: "父节点1",
@@ -18,15 +21,15 @@ const nodes= [
 
 
 const check ={
-    enable: true,
-    nocheckInherit: true
+    enable: false,
+    nocheckInherit: false
 }
-export default class ZtreeTest extends Component {
+class ZtreeTest extends Component {
   render() {
     return (
-      <div>
-          <ReactZtree nodes={nodes} events={this.getEvents()} check={check} ref="ztree" treeName={'tree1'}/>
-          {/* <ReactZtree nodes={nodes} events={this.getEvents()} check={check} ref="ztree"/> */}
+      <div >
+          {/* <ReactZtree nodes={nodes} events={this.getEvents()} check={check} ref="ztree" treeName={'tree1'}/> */}
+          <ZtreeReact nodes={nodes} events={this.getEvents()} ref="ztree" check={check}/>
       </div>
     );
   }
@@ -48,3 +51,5 @@ export default class ZtreeTest extends Component {
     console.log(window.ztree);
   }
 }
+
+export default ZtreeTest;
